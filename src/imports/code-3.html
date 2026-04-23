@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Serene Infusion - Product Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#414943",
+                      "surface-tint": "#3d6751",
+                      "secondary-fixed-dim": "#bdcac1",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#f7b6b9",
+                      "on-secondary-container": "#5b6760",
+                      "on-tertiary-fixed": "#340f13",
+                      "on-error-container": "#93000a",
+                      "secondary": "#55615a",
+                      "surface-dim": "#dadada",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#1a1c1c",
+                      "inverse-surface": "#2f3131",
+                      "on-primary-fixed-variant": "#254f3a",
+                      "outline": "#717973",
+                      "primary": "#3d6751",
+                      "secondary-container": "#d9e6dd",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e2e2e2",
+                      "on-primary-container": "#345d48",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-bright": "#f9f9f9",
+                      "surface-container-low": "#f3f3f3",
+                      "secondary-fixed": "#d9e6dd",
+                      "background": "#f9f9f9",
+                      "tertiary-container": "#fcbabd",
+                      "primary-fixed-dim": "#a4d1b6",
+                      "on-tertiary-container": "#79474b",
+                      "inverse-on-surface": "#f1f1f1",
+                      "outline-variant": "#c1c8c1",
+                      "surface-container": "#eeeeee",
+                      "tertiary": "#835053",
+                      "surface-container-high": "#e8e8e8",
+                      "primary-fixed": "#bfedd1",
+                      "on-primary-fixed": "#002113",
+                      "on-secondary-fixed-variant": "#3e4943",
+                      "surface": "#f9f9f9",
+                      "inverse-primary": "#a4d1b6",
+                      "on-secondary-fixed": "#131e19",
+                      "on-background": "#1a1c1c",
+                      "primary-container": "#a8d5ba",
+                      "tertiary-fixed": "#ffdadb",
+                      "on-tertiary-fixed-variant": "#68393d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Plus Jakarta Sans"],
+                      "label": ["Plus Jakarta Sans"]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+      </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<nav class="sticky top-0 w-full z-50 bg-white/70 dark:bg-emerald-950/70 backdrop-blur-xl shadow-sm shadow-emerald-900/5">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto text-emerald-900 dark:text-emerald-100 font-plus-jakarta tracking-tight font-medium">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-50 scale-95 active:duration-100" href="#">The Serene Infusion</a>
+<div class="hidden md:flex gap-6">
+<a class="text-emerald-900/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors hover:scale-105 duration-200" href="#">Menu</a>
+<a class="text-emerald-900/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors hover:scale-105 duration-200" href="#">Store Finder</a>
+<a class="text-emerald-900/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors hover:scale-105 duration-200" href="#">Philosophy</a>
+<a class="text-emerald-900/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors hover:scale-105 duration-200" href="#">Gifts</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:scale-105 transition-transform duration-200 scale-95 active:duration-100 p-2 rounded-full hover:bg-surface-container-low text-emerald-900 dark:text-emerald-100">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="hover:scale-105 transition-transform duration-200 scale-95 active:duration-100 p-2 rounded-full hover:bg-surface-container-low text-emerald-900 dark:text-emerald-100 relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="hover:scale-105 transition-transform duration-200 scale-95 active:duration-100 p-2 rounded-full hover:bg-surface-container-low text-emerald-900 dark:text-emerald-100 hidden md:block">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="md:hidden hover:scale-105 transition-transform duration-200 scale-95 active:duration-100 p-2 rounded-full hover:bg-surface-container-low text-emerald-900 dark:text-emerald-100">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-[1440px] mx-auto pt-12 pb-24 px-6 md:px-12 lg:px-20">
+<!-- Breadcrumb -->
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-label tracking-wider mb-8">
+<a class="hover:text-primary transition-colors" href="#">Menu</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Signatures</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-primary font-medium">Ceremonial Matcha Latte</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-start">
+<!-- Left: Image Gallery (Asymmetric/Bleeding) -->
+<div class="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-[3rem] overflow-hidden group">
+<img alt="Ceremonial Matcha Latte" class="object-cover w-full h-full object-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="a tall elegant glass of layered matcha milk tea with vibrant green at the top fading to creamy white at the bottom, sitting on a pale stone surface with soft morning light and subtle botanical shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7m_MHwfFFmHnXwo1L6qtqGi8gUigjctEYPiSZxGk630URpuQZCTYXXTeY1zPywuFZmDdU3aoA-ycjpYPN78EYaAkRbX24RW1F9dEf-cWxVlu-IBgqLOp_m9QGIyhefxG_3RGnzwTIpzJi8qpLwePdnQbIEwoEieqzpUOyXHYGZEvxzbBEz8U9XvIXF4bhsVj8g3t_5VehoZ6nODTVjdcPDEBVJQ03BIATKc2quJWEnjKbJu2y8yft0GgQSEf8xlSk4T7poO-a5w"/>
+<!-- Decorative Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/20 to-transparent pointer-events-none"></div>
+<!-- Small Thumbnail Gallery overlayed -->
+<div class="absolute bottom-6 left-6 flex gap-3 pointer-events-auto">
+<button class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-surface-container-lowest shadow-sm hover:scale-105 transition-transform">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALgZWFCC764eVbi0rB03-OhoWga_E6mzZPFr4e44XCiiXHzB_l3wI_ecNYQP_fppoWfdR-QRVMytq2ivlN7LLoyKHTC9VFaQ7ZWNatTXEO7ps6zoHxUr-Hu-sjEuKw4z0OMYAVGYWZC1T61j1OZZspDiypJiCrvVUW3BBQWfratkEvx1-IagkObLVg56Yz2rzKuIbfrKBVxc1MKZqvflqptRHpxhU73mq4-izkgTaAFAdaTtHcbBqD70MEKMBSR9vvHB1K2_bdwQ"/>
+</button>
+<button class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-transparent hover:border-surface-container-highest shadow-sm hover:scale-105 transition-transform opacity-70 hover:opacity-100">
+<img alt="Thumbnail 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAolsqv-Bdxhxn0UMouEdViZ-zNu3_TaYVoJlzHIaZsgAtSLV79OeSwJ2mfBqWBGm3TzqbkmTThWE1c8OIrlTgtm1fuGWsu8kmD1feTXFwwsYdxw7rUokjJ47k3k3lifQ5G2Frp2V8PoN6B-4-AdUZv58MgUoeR8xgR2YPqfvUZBJfUq76W6lbVu-AGAM1Kwr_c0Fn26n3d7otqjbqX-xP0w86uG5wgko68ItDSNdB8dJYYBbnaW3r7Yi2-30cVhsM9pskryyKGuw"/>
+</button>
+</div>
+</div>
+<!-- Right: Product Details & Configurator -->
+<div class="flex flex-col">
+<!-- Header -->
+<div class="mb-10">
+<div class="inline-block px-4 py-1.5 rounded-full bg-primary-container/30 text-on-primary-container text-xs font-label uppercase tracking-[0.1em] font-semibold mb-4">
+                        Signature Collection
+                    </div>
+<h1 class="text-[3.5rem] leading-[1.1] font-headline tracking-[-0.02em] text-on-surface mb-4">
+                        Ceremonial Matcha Latte
+                    </h1>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed max-w-xl">
+                        A harmonious blend of shade-grown, stone-milled matcha from Uji, Japan, gently whisked with creamy oat milk. Earthy, vibrant, and perfectly balanced.
+                    </p>
+<div class="mt-6 text-2xl font-headline font-semibold text-primary">
+                        $6.50
+                    </div>
+</div>
+<!-- Configurator -->
+<div class="space-y-8 bg-surface-container-low rounded-[2rem] p-8">
+<!-- Size -->
+<div>
+<div class="flex justify-between items-end mb-4">
+<h3 class="text-on-surface font-headline font-medium tracking-tight">Size</h3>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 py-4 rounded-full bg-surface-container-lowest text-on-surface font-body font-medium hover:bg-surface-variant transition-colors shadow-sm outline outline-1 outline-outline-variant/15 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">local_cafe</span>
+<span>Small</span>
+</button>
+<button class="flex-1 py-4 rounded-full bg-primary-container text-on-primary-container font-body font-semibold shadow-sm flex flex-col items-center gap-1 scale-[1.02]">
+<span class="material-symbols-outlined text-2xl">local_cafe</span>
+<span>Medium</span>
+</button>
+<button class="flex-1 py-4 rounded-full bg-surface-container-lowest text-on-surface font-body font-medium hover:bg-surface-variant transition-colors shadow-sm outline outline-1 outline-outline-variant/15 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-3xl">local_cafe</span>
+<span>Large</span>
+</button>
+</div>
+</div>
+<!-- Sweetness -->
+<div>
+<div class="flex justify-between items-end mb-4">
+<h3 class="text-on-surface font-headline font-medium tracking-tight">Sweetness Level</h3>
+<span class="text-sm font-label text-on-surface-variant">50% (Standard)</span>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-3 rounded-2xl bg-surface-container-lowest text-on-surface font-body text-sm hover:bg-surface-variant transition-colors shadow-sm outline outline-1 outline-outline-variant/15">0%</button>
+<button class="flex-1 py-3 rounded-2xl bg-surface-container-lowest text-on-surface font-body text-sm hover:bg-surface-variant transition-colors shadow-sm outline outline-1 outline-outline-variant/15">25%</button>
+<button class="flex-1 py-3 rounded-2xl bg-primary-container text-on-primary-container font-body text-sm font-semibold shadow-sm">50%</button>
+<button class="flex-1 py-3 rounded-2xl bg-surface-container-lowest text-on-surface font-body text-sm hover:bg-surface-variant transition-colors shadow-sm outline outline-1 outline-outline-variant/15">75%</button>
+<button class="flex-1 py-3 rounded-2xl bg-surface-container-lowest text-on-surface font-body text-sm hover:bg-surface-variant transition-colors shadow-sm outline outline-1 outline-outline-variant/15">100%</button>
+</div>
+</div>
+<!-- Toppings -->
+<div>
+<div class="flex justify-between items-end mb-4">
+<h3 class="text-on-surface font-headline font-medium tracking-tight">Additions</h3>
+<span class="text-sm font-label text-on-surface-variant">Optional</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center p-4 rounded-2xl bg-surface-container-lowest cursor-pointer hover:bg-surface-variant transition-colors outline outline-1 outline-outline-variant/15 group">
+<div class="w-5 h-5 rounded-md border-2 border-outline-variant group-hover:border-primary flex items-center justify-center mr-3"></div>
+<span class="font-body text-on-surface flex-1">Honey Boba</span>
+<span class="text-sm text-on-surface-variant">+$0.75</span>
+</label>
+<label class="flex items-center p-4 rounded-2xl bg-primary-container/20 cursor-pointer hover:bg-primary-container/30 transition-colors outline outline-1 outline-primary/30 group">
+<div class="w-5 h-5 rounded-md bg-primary flex items-center justify-center mr-3">
+<span class="material-symbols-outlined text-[14px] text-on-primary">check</span>
+</div>
+<span class="font-body text-on-surface flex-1">Oat Milk</span>
+<span class="text-sm text-on-surface-variant">+$0.50</span>
+</label>
+<label class="flex items-center p-4 rounded-2xl bg-surface-container-lowest cursor-pointer hover:bg-surface-variant transition-colors outline outline-1 outline-outline-variant/15 group">
+<div class="w-5 h-5 rounded-md border-2 border-outline-variant group-hover:border-primary flex items-center justify-center mr-3"></div>
+<span class="font-body text-on-surface flex-1">Aloe Vera</span>
+<span class="text-sm text-on-surface-variant">+$0.75</span>
+</label>
+<label class="flex items-center p-4 rounded-2xl bg-surface-container-lowest cursor-pointer hover:bg-surface-variant transition-colors outline outline-1 outline-outline-variant/15 group">
+<div class="w-5 h-5 rounded-md border-2 border-outline-variant group-hover:border-primary flex items-center justify-center mr-3"></div>
+<span class="font-body text-on-surface flex-1">Matcha Jelly</span>
+<span class="text-sm text-on-surface-variant">+$0.75</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-8 flex items-center gap-6">
+<div class="flex items-center bg-surface-container-highest rounded-full p-2">
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-8 text-center font-headline font-semibold text-lg text-on-surface">1</span>
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="flex-1 bg-gradient-to-r from-primary to-primary-fixed-dim text-on-primary font-headline font-semibold text-lg py-5 rounded-full hover:scale-[1.02] transition-transform duration-200 shadow-lg shadow-primary/20 flex justify-center items-center gap-3">
+<span>Add to Cart</span>
+<span class="text-on-primary/80">— $7.00</span>
+</button>
+</div>
+<!-- Nutrition Context -->
+<div class="mt-12 pt-8 border-t border-outline-variant/15 flex gap-8">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">eco</span>
+<div>
+<h4 class="font-headline font-medium text-on-surface text-sm">Vegan Option</h4>
+<p class="text-sm font-body text-on-surface-variant mt-1">Available with oat or almond milk.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">bolt</span>
+<div>
+<h4 class="font-headline font-medium text-on-surface text-sm">Caffeine</h4>
+<p class="text-sm font-body text-on-surface-variant mt-1">Approx. 70mg per medium serving.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products (Bento Style) -->
+<div class="mt-32">
+<h2 class="text-3xl font-headline tracking-tight text-on-surface mb-12">More from the Botanical Collection</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<a class="group rounded-[2rem] bg-surface-container-lowest p-6 hover:shadow-[0_8px_32px_rgba(26,28,28,0.04)] transition-all duration-300 flex flex-col outline outline-1 outline-outline-variant/10" href="#">
+<div class="w-full aspect-square rounded-[1.5rem] overflow-hidden bg-surface-variant mb-6">
+<img alt="Jasmine Green Tea" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="clear glass cup of amber-colored jasmine green tea with ice cubes and a sprig of mint, bright airy lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZrFCwh_wJnpgkwH1stkG0cRomnxLtQ0Onu7bvjF4iSkEzDnXJ2wYSHqBu-e_svIVyXNyj9T2JV5wgsnVJtmhgPQQbDzBmC5RsTXj077u99vc3VsFCLwEk8MrmU1voBmwDFZKzw7DzrHOzJ_mdJy-_RmvH6aHRwD-fwFZ2HwsO4ibdn4lWosvtfPIDO8uIpK_USCHIUMvlXGOz-VUWNANEGWMgb6hOHVwph7_LDC7z0cMUhbJpNp2NLOFbhPrZZ673ebZ51MhpLQ"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-medium text-lg text-on-surface">Jasmine Green Tea</h3>
+<p class="text-sm font-body text-on-surface-variant mt-1">Light &amp; Floral</p>
+</div>
+<span class="font-headline font-medium text-primary">$4.50</span>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="group rounded-[2rem] bg-surface-container-lowest p-6 hover:shadow-[0_8px_32px_rgba(26,28,28,0.04)] transition-all duration-300 flex flex-col outline outline-1 outline-outline-variant/10" href="#">
+<div class="w-full aspect-square rounded-[1.5rem] overflow-hidden bg-surface-variant mb-6 relative">
+<div class="absolute top-4 left-4 z-10 px-3 py-1 bg-surface/80 backdrop-blur-md rounded-full text-xs font-label uppercase tracking-widest text-on-surface font-semibold">New</div>
+<img alt="Hojicha Roasted Tea" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="dark roasted hojicha milk tea in a ceramic mug on a wooden coaster, moody atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW41fCjtm3f4nMB6vPjtev5dw8Y5fBpH0L8c3QB8CIQasc4XrwC1y86Lqa8eOZUNP7FmUwJ7_RwJ21bWdAjWYyriQKfsodyY-slUfefCadYG_t5mNqcWk_UCUcuBv-1f72kw74tIxouri54uvaawxVkPOBuE-wd6rjhjhUCaebPRSZqOQU6mD2_Itmv9RSMoAQxHTXvif9N0kpT6fwwhkRe7ASlCkpM4lg4KVcTi5fNV-QLTIWqdbnnbAiSW6-veYYa6A7tkrpRw"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-medium text-lg text-on-surface">Hojicha Latte</h3>
+<p class="text-sm font-body text-on-surface-variant mt-1">Roasted &amp; Nutty</p>
+</div>
+<span class="font-headline font-medium text-primary">$6.00</span>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="group rounded-[2rem] bg-surface-container-lowest p-6 hover:shadow-[0_8px_32px_rgba(26,28,28,0.04)] transition-all duration-300 flex flex-col outline outline-1 outline-outline-variant/10" href="#">
+<div class="w-full aspect-square rounded-[1.5rem] overflow-hidden bg-surface-variant mb-6">
+<img alt="Oolong Milk Tea" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="classic oolong milk tea with dark boba pearls at the bottom, warm neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4sH20QScIXYQDGKOl-jXn1LPnjPc7gFQ4Au-5z78LuD9dKb3bAA-6liEGhdfaMib_s1S_zfEtIQ3-Ws2QNMYNtNm-VetIqGadYtYp3DOm0tK3ty1KnHYzT7qpkGw62W1Ssrh2E20n6Y8gI51zc-fESeGqmZqp86LWcM_omIPiY72Oya3fPt2wdudL2A3yHNE3hLMbehrwqnrawfXWGVV-1TtEVeOCNHPkCf5U_7QcU4FrzberOmO92dCa6baP_gNPysIrsxJFng"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-medium text-lg text-on-surface">Classic Oolong</h3>
+<p class="text-sm font-body text-on-surface-variant mt-1">Rich &amp; Smooth</p>
+</div>
+<span class="font-headline font-medium text-primary">$5.50</span>
+</div>
+</a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-emerald-50 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-100 font-plus-jakarta text-sm tracking-wide w-full rounded-t-[3rem] mt-20">
+<div class="flex flex-col md:flex-row justify-between items-start py-16 px-12 gap-8 max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-4">
+<span class="text-xl font-bold text-emerald-900 dark:text-emerald-50">The Serene Infusion</span>
+<span class="text-emerald-800/70 dark:text-emerald-200/70">© 2024 The Serene Infusion. Steeped in Elegance.</span>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300 hover:text-emerald-900 dark:hover:text-emerald-50" href="#">Contact</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300 hover:text-emerald-900 dark:hover:text-emerald-50" href="#">Sustainability</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300 hover:text-emerald-900 dark:hover:text-emerald-50" href="#">Press</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300 hover:text-emerald-900 dark:hover:text-emerald-50" href="#">Careers</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300 hover:text-emerald-900 dark:hover:text-emerald-50" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

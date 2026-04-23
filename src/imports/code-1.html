@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Serene Infusion - Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#414943",
+                        "surface-tint": "#3d6751",
+                        "secondary-fixed-dim": "#bdcac1",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#f7b6b9",
+                        "on-secondary-container": "#5b6760",
+                        "on-tertiary-fixed": "#340f13",
+                        "on-error-container": "#93000a",
+                        "secondary": "#55615a",
+                        "surface-dim": "#dadada",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1c",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-fixed-variant": "#254f3a",
+                        "outline": "#717973",
+                        "primary": "#3d6751",
+                        "secondary-container": "#d9e6dd",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-container": "#345d48",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-fixed": "#d9e6dd",
+                        "background": "#f9f9f9",
+                        "tertiary-container": "#fcbabd",
+                        "primary-fixed-dim": "#a4d1b6",
+                        "on-tertiary-container": "#79474b",
+                        "inverse-on-surface": "#f1f1f1",
+                        "outline-variant": "#c1c8c1",
+                        "surface-container": "#eeeeee",
+                        "tertiary": "#835053",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed": "#bfedd1",
+                        "on-primary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#3e4943",
+                        "surface": "#f9f9f9",
+                        "inverse-primary": "#a4d1b6",
+                        "on-secondary-fixed": "#131e19",
+                        "on-background": "#1a1c1c",
+                        "primary-container": "#a8d5ba",
+                        "tertiary-fixed": "#ffdadb",
+                        "on-tertiary-fixed-variant": "#68393d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .ambient-shadow { box-shadow: 0 10px 32px rgba(26, 28, 28, 0.04); }
+        .ambient-shadow-hover:hover { box-shadow: 0 16px 48px rgba(26, 28, 28, 0.08); transform: translateY(-4px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="glass-nav bg-white/70 dark:bg-emerald-950/70 sticky top-0 w-full z-50 no-border shadow-none shadow-sm shadow-emerald-900/5 transition-all">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto font-plus-jakarta tracking-tight font-medium">
+<div class="text-2xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">
+                The Serene Infusion
+            </div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-emerald-700 dark:text-emerald-300 font-semibold border-b-2 border-emerald-700 dark:border-emerald-300 pb-1" href="#">Menu</a>
+<a class="text-emerald-900/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors" href="#">Store Finder</a>
+<a class="text-emerald-900/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors" href="#">Philosophy</a>
+<a class="text-emerald-900/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors" href="#">Gifts</a>
+</nav>
+<div class="flex items-center space-x-4 text-emerald-900 dark:text-emerald-100">
+<button class="hover:scale-105 transition-transform duration-200 scale-95 active:duration-100 p-2">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:scale-105 transition-transform duration-200 scale-95 active:duration-100 p-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-8 py-12 flex flex-col md:flex-row gap-12">
+<!-- Sidebar Filters (md+) -->
+<aside class="hidden md:block w-64 flex-shrink-0">
+<div class="sticky top-28 space-y-10">
+<div>
+<h2 class="text-label tracking-[0.05em] uppercase text-outline mb-6 text-sm font-semibold">Categories</h2>
+<ul class="space-y-4">
+<li><button class="text-primary font-semibold text-left w-full hover:text-primary-container transition-colors">Signature Matchas</button></li>
+<li><button class="text-on-surface-variant hover:text-primary transition-colors text-left w-full">Botanical Infusions</button></li>
+<li><button class="text-on-surface-variant hover:text-primary transition-colors text-left w-full">Cold Brew Teas</button></li>
+<li><button class="text-on-surface-variant hover:text-primary transition-colors text-left w-full">Wellness Elixirs</button></li>
+<li><button class="text-on-surface-variant hover:text-primary transition-colors text-left w-full">Seasonal Specials</button></li>
+</ul>
+</div>
+<div>
+<h2 class="text-label tracking-[0.05em] uppercase text-outline mb-6 text-sm font-semibold">Dietary</h2>
+<div class="flex flex-wrap gap-2">
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-full text-sm font-medium transition-colors">Vegan</button>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary-container transition-colors">Dairy-Free</button>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary-container transition-colors">Low Sugar</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-grow">
+<!-- Mobile Filters (horizontal scroll) -->
+<div class="md:hidden flex overflow-x-auto pb-6 -mx-4 px-4 gap-3 snap-x scrollbar-hide">
+<button class="snap-start whitespace-nowrap bg-primary-container text-on-primary-container px-6 py-3 rounded-full text-sm font-medium">Signature Matchas</button>
+<button class="snap-start whitespace-nowrap bg-surface-container-high text-on-surface px-6 py-3 rounded-full text-sm font-medium">Botanical Infusions</button>
+<button class="snap-start whitespace-nowrap bg-surface-container-high text-on-surface px-6 py-3 rounded-full text-sm font-medium">Cold Brew Teas</button>
+<button class="snap-start whitespace-nowrap bg-surface-container-high text-on-surface px-6 py-3 rounded-full text-sm font-medium">Wellness Elixirs</button>
+</div>
+<!-- Header -->
+<div class="mb-12">
+<h1 class="text-[3.5rem] leading-none tracking-[-0.02em] font-bold text-on-surface mb-4">Signature Matchas</h1>
+<p class="text-on-surface-variant max-w-2xl text-lg">Ceremonial grade matcha sourced from Uji, Japan. Whisked to perfection and combined with house-made botanical milks.</p>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<article class="bg-surface-container-lowest rounded-t-[3rem] rounded-b-lg overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 group flex flex-col">
+<div class="relative h-72 overflow-hidden bg-surface-container-low">
+<img alt="Iced matcha latte in a clear glass with condensation, soft natural lighting, creamy green layers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Iced matcha latte in a clear glass with condensation, soft natural lighting, creamy green layers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA736MlP2ff5qK_qzxpcAlIHDc9Rv-RIlQ0PfEyB76PZdbsRlnkR8jixDa5TKSJPKdLXLiroRpOT5x3lOsxKOSxadfH7TwLczOKflfeDHze9f_GRIi5fBAhyrhbxDV9tKoXmHg9vyZhr61M3OxrXU_sy4695_r53NGZLw-2aGB-5i2BSums6uYdPgiuYyNbVwxtxq6vE5xr7MDqSuZwxXJAJsnNljOgXx_EWMc9ZJlbJ45Z9bfyrkJ1MOZH0FbRSekYa7iLQSXJCw"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[1rem] text-primary" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-medium text-on-surface">4.9</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex justify-between items-start mb-2 gap-4">
+<h3 class="text-xl font-bold text-on-surface leading-tight">Ceremonial Iced Matcha</h3>
+<span class="text-lg font-semibold text-primary">$6.50</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Pure ceremonial grade matcha, oat milk, and a hint of Madagascar vanilla bean.</p>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-medium hover:scale-[1.02] transition-transform duration-200">Add to Order</button>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="bg-surface-container-lowest rounded-t-[3rem] rounded-b-lg overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 group flex flex-col">
+<div class="relative h-72 overflow-hidden bg-surface-container-low">
+<img alt="Hot matcha latte with delicate latte art in a ceramic cup, minimalist setting, warm side lighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Hot matcha latte with delicate latte art in a ceramic cup, minimalist setting, warm side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOlhpLOYoXmTEzbv9j9EM25Q1eYUTxix9yHDLIeTXeYCNpGfAEuYwUPdM_iduUyOBm9Y46NdNb72bgqyzjlTthRH06ZOO88NTjttFc_VoqQXcaaXvEZfJgoRZogUpRUBUxI_tRAl_QUutt8b9W9wPX84roq-eS5Q_FgfxIAEkD_s5mLRW6S6GdPzxht-RJfQ3vy4Ns6zjH2Rj50dfVh_B1e--jO8-JmHlmCoQcZEiLAcUopyw2AjVs9iYv64s6SxIpBWIycC0n2w"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex justify-between items-start mb-2 gap-4">
+<h3 class="text-xl font-bold text-on-surface leading-tight">Hot Rose Matcha</h3>
+<span class="text-lg font-semibold text-primary">$7.00</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Steamed macadamia milk, matcha, infused with organic rose water and topped with dried petals.</p>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-medium hover:scale-[1.02] transition-transform duration-200">Add to Order</button>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="bg-surface-container-lowest rounded-t-[3rem] rounded-b-lg overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 group flex flex-col">
+<div class="relative h-72 overflow-hidden bg-surface-container-low">
+<img alt="Layered matcha drink with strawberry puree at bottom, clear tall glass, bright fresh aesthetic" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Layered matcha drink with strawberry puree at bottom, clear tall glass, bright fresh aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF_6VQku0yWnct0m2w17i4IoWX9nfwC5sFDJHuE2BrF02gkLUkSyWXVv4WhTlGac-GnrOKLXQJhDOi8YrmqZBe2gyILHfZlBMus-l5hMkKsYO1a7JSJdn5QKUPDGKOglM02UolF77K6ExqrvzGYvTu8gqyAT8KYJjv9Oxdk3F9agF89liXH80XD2x7YWqwmvdlTc6Wo3LQpG9tGuTjGrzU94G1GcQxF2CQEMjd0YQRKvmoHq7l40Untyc3yVkfskLOx0aECeYARQ"/>
+<div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-sm">
+                            New
+                        </div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex justify-between items-start mb-2 gap-4">
+<h3 class="text-xl font-bold text-on-surface leading-tight">Strawberry Matcha Cloud</h3>
+<span class="text-lg font-semibold text-primary">$8.00</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Fresh strawberry puree, coconut milk, and a thick layer of whipped matcha foam.</p>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-medium hover:scale-[1.02] transition-transform duration-200">Add to Order</button>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="bg-surface-container-lowest rounded-t-[3rem] rounded-b-lg overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 group flex flex-col">
+<div class="relative h-72 overflow-hidden bg-surface-container-low">
+<img alt="Green tea with mint leaves in clear glass, icy and refreshing, soft daylight" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Green tea with mint leaves in clear glass, icy and refreshing, soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhKtiIfBZQYAKiVBi1ooBerNg8Y52SA2XI8mGFdJjvtdEnGf3fr_9DcIbhCHTMe5QexDZMSb1jkQ390gybOInInEIs1YVqpRbxa_EJBi5WAabI5qwOfDnCwxnkbo69EUVyC-b_hAMdTGOSWHdHnaRZKAKE6vPZspPJPYEjNj7l6-QCJo5J1tKKSbElcEk_NneXhNQqTcZXJsVuX7Wnt-ePPUHrF9QGuauxSUhHUgXfud7jBGCpVLVqqdZTHWmdq3HY_Rf1da8Gjw"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex justify-between items-start mb-2 gap-4">
+<h3 class="text-xl font-bold text-on-surface leading-tight">Matcha Mint Refresher</h3>
+<span class="text-lg font-semibold text-primary">$6.00</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Light matcha green tea shaken with fresh mint, cucumber, and a touch of agave.</p>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-medium hover:scale-[1.02] transition-transform duration-200">Add to Order</button>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-emerald-50 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-100 font-plus-jakarta text-sm tracking-wide w-full rounded-t-[3rem] mt-20 tonal-shift flat no-shadows opacity-80">
+<div class="flex flex-col md:flex-row justify-between items-start py-16 px-12 gap-8 max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-xl font-bold text-emerald-900 dark:text-emerald-50">The Serene Infusion</div>
+<div class="text-emerald-800/70 dark:text-emerald-200/70">© 2024 The Serene Infusion. Steeped in Elegance.</div>
+</div>
+<nav class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300" href="#">Contact</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300" href="#">Sustainability</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300" href="#">Press</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300" href="#">Careers</a>
+<a class="text-emerald-800/70 dark:text-emerald-200/70 hover:translate-x-1 transition-transform duration-300" href="#">Privacy Policy</a>
+</nav>
+</div>
+</footer>
+</body></html>
