@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+﻿import { useEffect, useMemo, useState } from 'react';
 import type { ChangeEvent, ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
@@ -18,8 +18,8 @@ import {
   UserRound,
   X,
 } from 'lucide-react';
-import type { CartItem } from '../context/CartContext';
-import { useCart } from '../context/CartContext';
+import type { CartItem } from '../contexts/CartContext';
+import { useCart } from '../contexts/CartContext';
 import { formatPrice } from '../data/products';
 import { ButtonLoadingContent, FullScreenLoadingOverlay } from '../components/AppLoading';
 import { CartItemEditModal } from '../components/CartItemEditModal';

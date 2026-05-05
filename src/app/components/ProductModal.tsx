@@ -1,19 +1,12 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Minus, Plus, ShoppingBag, X } from 'lucide-react';
+import { Check, Minus, Plus, ShoppingBag, X } from 'lucide-react';
 import { formatPrice, products } from '../data/products';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../contexts/CartContext';
+import { useAttributes } from '../contexts/AttributesContext';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { toast } from 'sonner';
 import { ButtonLoadingContent } from './AppLoading';
-
-const SIZES = [
-  { id: 'S', label: 'Nhỏ', icon: 'S', priceAdd: -5000 },
-  { id: 'M', label: 'Vừa', icon: 'M', priceAdd: 0 },
-  { id: 'L', label: 'Lớn', icon: 'L', priceAdd: 10000 },
-];
-
-const SWEETNESS_LEVELS = ['0%', '25%', '50%', '75%', '100%'];
 
 interface ProductModalProps {
   productId: string | null;
@@ -23,48 +16,89 @@ interface ProductModalProps {
 
 export function ProductModal({ productId, isOpen, onClose }: ProductModalProps) {
   const { dispatch } = useCart();
+  const { attributes, getDefaultSelections } = useAttributes();
   const product = products.find((p) => p.id === productId) || null;
 
-  const [selectedSize, setSelectedSize] = useState('M');
-  const [selectedSweetness, setSelectedSweetness] = useState('50%');
+  const [selections, setSelections] = useState<Record<string, string>>({});
+  const [multiSelections, setMultiSelections] = useState<Record<string, string[]>>({});
   const [quantity, setQuantity] = useState(1);
   const [note, setNote] = useState('');
   const [isAdding, setIsAdding] = useState(false);
 
+  const multiAttrs = attributes.filter((a) => a.multiSelect);
+
   useEffect(() => {
     if (isOpen && product) {
-      setSelectedSize('M');
-      setSelectedSweetness('50%');
+      setSelections(getDefaultSelections(attributes));
+      const multiDefaults: Record<string, string[]> = {};
+      multiAttrs.forEach((attr) => { multiDefaults[attr.id] = []; });
+      setMultiSelections(multiDefaults);
       setQuantity(1);
       setNote('');
       setIsAdding(false);
     }
-  }, [isOpen, product]);
+  }, [isOpen, product, attributes]);
 
   if (!product) return null;
 
-  const sizeAdd = SIZES.find((size) => size.id === selectedSize)?.priceAdd ?? 0;
-  const itemPrice = product.price + sizeAdd;
+  const priceAdd = attributes.reduce((sum, attr) => {
+    if (attr.multiSelect) {
+      const ids = multiSelections[attr.id] ?? [];
+      return sum + attr.options
+        .filter((o) => ids.includes(o.id))
+        .reduce((s, o) => s + (o.priceAdd ?? 0), 0);
+    }
+    const opt = attr.options.find((o) => o.id === selections[attr.id]);
+    return sum + (opt?.priceAdd ?? 0);
+  }, 0);
+
+  const itemPrice = product.price + priceAdd;
   const totalPrice = itemPrice * quantity;
+
+  const handleMultiToggle = (attrId: string, optId: string) => {
+    setMultiSelections((prev) => {
+      const current = prev[attrId] ?? [];
+      return {
+        ...prev,
+        [attrId]: current.includes(optId)
+          ? current.filter((id) => id !== optId)
+          : [...current, optId],
+      };
+    });
+  };
 
   const handleAddToCart = () => {
     if (isAdding) return;
-
     setIsAdding(true);
-    const sizeName = SIZES.find((size) => size.id === selectedSize)?.label ?? selectedSize;
+
+    const sizeOpt = attributes.find((a) => a.id === 'size')?.options.find((o) => o.id === selections['size']);
+    const sugarOpt = attributes.find((a) => a.id === 'sugar')?.options.find((o) => o.id === selections['sugar']);
+
+    const toppingsAttr = multiAttrs.find((a) => a.id === 'toppings');
+    const selectedToppingIds = multiSelections['toppings'] ?? [];
+    const selectedToppingNames = toppingsAttr?.options
+      .filter((o) => selectedToppingIds.includes(o.id))
+      .map((o) => o.label) ?? [];
+
+    const selStr = [
+      ...Object.entries(selections).map(([k, v]) => `${k}:${v}`),
+      ...Object.entries(multiSelections)
+        .filter(([, v]) => v.length > 0)
+        .map(([k, v]) => `${k}:${v.join(',')}`),
+    ].join('-');
 
     dispatch({
       type: 'ADD_ITEM',
       item: {
-        cartId: `${product.id}-${selectedSize}-${selectedSweetness}-${note.trim()}`,
+        cartId: `${product.id}-${selStr}-${note.trim()}`,
         id: product.id,
         name: product.name,
         price: itemPrice,
         image: product.image,
         quantity,
-        size: sizeName,
-        sweetness: selectedSweetness,
-        toppings: [],
+        size: sizeOpt?.label ?? '',
+        sweetness: sugarOpt?.label ?? '',
+        toppings: selectedToppingNames,
         note: note.trim() || undefined,
       },
     });
@@ -122,76 +156,66 @@ export function ProductModal({ productId, isOpen, onClose }: ProductModalProps) 
                       {product.name}
                     </h2>
                     <p className="mt-1 text-sm text-[#344054]">
-                      100+ đã bán | {product.categoryLabel}
+                      100+ đã bán · {product.categoryLabel}
                     </p>
                   </div>
                   <span className="shrink-0 text-xl font-bold text-[#f68749]">
-                    {formatPrice(product.price)}
+                    {formatPrice(itemPrice)}
                   </span>
                 </div>
 
                 <div className="space-y-6">
-                  <div>
-                    <h3 className="mb-3 font-bold text-[#101828]">Kích cỡ</h3>
-                    <div className="flex gap-2">
-                      {SIZES.map((size) => {
-                        const isActive = selectedSize === size.id;
+                  {attributes.map((attr) => {
+                    const isMulti = !!attr.multiSelect;
+                    return (
+                      <div key={attr.id}>
+                        <div className="mb-3 flex items-center justify-between">
+                          <h3 className="font-bold text-[#101828]">{attr.name}</h3>
+                          {isMulti && (
+                            <span className="text-xs text-[#98a2b3]">Chọn nhiều</span>
+                          )}
+                        </div>
 
-                        return (
-                          <button
-                            key={size.id}
-                            type="button"
-                            onClick={() => setSelectedSize(size.id)}
-                            className="flex flex-1 flex-col items-center justify-center rounded-xl py-3 transition-all duration-200"
-                            style={{
-                              backgroundColor: isActive ? '#fff4e9' : '#f9fafb',
-                              border: isActive ? '1.5px solid #f68749' : '1.5px solid transparent',
-                              color: isActive ? '#9a3d0f' : '#1d2939',
-                            }}
-                          >
-                            <span className="block text-sm font-semibold">{size.label}</span>
-                            <span className="block text-xs">
-                              {size.priceAdd > 0
-                                ? `+${formatPrice(size.priceAdd)}`
-                                : size.priceAdd < 0
-                                  ? formatPrice(size.priceAdd)
-                                  : '\u00A0'}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
+                        <div className="flex flex-wrap gap-2">
+                          {attr.options.map((opt) => {
+                            const isSelected = isMulti
+                              ? (multiSelections[attr.id] ?? []).includes(opt.id)
+                              : selections[attr.id] === opt.id;
 
-                  <div>
-                    <div className="mb-3 flex items-end justify-between">
-                      <h3 className="font-bold text-[#101828]">Độ ngọt</h3>
-                      <span className="text-sm font-medium text-[#f68749]">
-                        {selectedSweetness} đã chọn
-                      </span>
-                    </div>
-                    <div className="flex gap-2">
-                      {SWEETNESS_LEVELS.map((level) => {
-                        const isActive = selectedSweetness === level;
-
-                        return (
-                          <button
-                            key={level}
-                            type="button"
-                            onClick={() => setSelectedSweetness(level)}
-                            className="flex-1 rounded-xl py-2.5 text-sm font-bold transition-all duration-200"
-                            style={{
-                              backgroundColor: isActive ? '#fff4e9' : '#f9fafb',
-                              color: isActive ? '#9a3d0f' : '#1d2939',
-                              border: isActive ? '1.5px solid #f68749' : '1.5px solid transparent',
-                            }}
-                          >
-                            {level}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
+                            return (
+                              <button
+                                key={opt.id}
+                                type="button"
+                                onClick={() => {
+                                  if (isMulti) {
+                                    handleMultiToggle(attr.id, opt.id);
+                                  } else {
+                                    setSelections((prev) => ({ ...prev, [attr.id]: opt.id }));
+                                  }
+                                }}
+                                className="flex min-w-[64px] flex-col items-center justify-center gap-0.5 rounded-xl px-3 py-2.5 transition-all duration-200"
+                                style={{
+                                  backgroundColor: isSelected ? '#fff4e9' : '#f9fafb',
+                                  border: isSelected ? '1.5px solid #f68749' : '1.5px solid transparent',
+                                  color: isSelected ? '#9a3d0f' : '#1d2939',
+                                }}
+                              >
+                                <span className="block text-sm font-semibold">{opt.label}</span>
+                                {opt.priceAdd !== undefined && opt.priceAdd !== 0 && (
+                                  <span className="block text-xs opacity-70">
+                                    {opt.priceAdd > 0 ? `+${formatPrice(opt.priceAdd)}` : formatPrice(opt.priceAdd)}
+                                  </span>
+                                )}
+                                {isSelected && isMulti && (
+                                  <Check size={11} className="mt-0.5 text-[#f68749]" strokeWidth={3} />
+                                )}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
 
                   <div>
                     <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-[#344054]">
@@ -202,7 +226,7 @@ export function ProductModal({ productId, isOpen, onClose }: ProductModalProps) 
                       className="w-full rounded-xl border border-gray-200 bg-white p-4 text-sm text-[#101828] outline-none transition-all placeholder:text-[#98a2b3] focus:border-[#f68749] focus:ring-2 focus:ring-[#f68749]/20"
                       placeholder="Ví dụ: ít đá, không đường..."
                       value={note}
-                      onChange={(event) => setNote(event.target.value)}
+                      onChange={(e) => setNote(e.target.value)}
                     />
                   </div>
                 </div>

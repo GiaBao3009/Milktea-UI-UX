@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  category: 'matcha' | 'botanical' | 'cold-brew' | 'wellness' | 'seasonal';
+  category: 'matcha' | 'botanical' | 'cold-brew' | 'wellness' | 'seasonal' | 'drinks';
   categoryLabel: string;
   description: string;
   image: string;
@@ -11,6 +11,7 @@ export interface Product {
   isNew?: boolean;
   isBestseller?: boolean;
   badge?: string;
+  skipAttributes?: boolean;
 }
 
 export const CATEGORIES = [
@@ -19,6 +20,7 @@ export const CATEGORIES = [
   { id: 'cold-brew', label: 'Kem phủ và pha tầng' },
   { id: 'wellness', label: 'Sữa chua và trà nhẹ' },
   { id: 'seasonal', label: 'Phiên bản theo mùa' },
+  { id: 'drinks', label: 'Nước ngọt' },
 ];
 
 const EXTRA = 'https://images.unsplash.com/photo-1771405317905-44d78aa82d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800';
@@ -147,6 +149,40 @@ export const products: Product[] = [
     rating: 4.9,
     isNew: true,
     badge: 'Giới hạn',
+  },
+  // ── Nước ngọt – không có attributes (skipAttributes: true) ──
+  {
+    id: 'drink-1',
+    name: 'Pepsi Lon 330ml',
+    price: 20000,
+    category: 'drinks',
+    categoryLabel: 'Nước ngọt',
+    description: 'Pepsi lon lạnh 330ml — vị cola quen thuộc, mở ra uống liền, không cần thêm gì.',
+    image: 'https://images.unsplash.com/photo-1546173159-315724a31696?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=900',
+    images: ['https://images.unsplash.com/photo-1546173159-315724a31696?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=900'],
+    skipAttributes: true,
+  },
+  {
+    id: 'drink-2',
+    name: '7UP Lon 330ml',
+    price: 20000,
+    category: 'drinks',
+    categoryLabel: 'Nước ngọt',
+    description: '7UP lon lạnh 330ml — vị chanh sảng khoái, đóng hộp sẵn không cần chỉnh độ ngọt hay đá.',
+    image: 'https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=900',
+    images: ['https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=900'],
+    skipAttributes: true,
+  },
+  {
+    id: 'drink-3',
+    name: 'Nước Suối Dasani 500ml',
+    price: 15000,
+    category: 'drinks',
+    categoryLabel: 'Nước đóng chai',
+    description: 'Nước tinh khiết Dasani 500ml — thanh mát, đơn giản nhất, không có gì để tuỳ chỉnh.',
+    image: 'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=900',
+    images: ['https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=900'],
+    skipAttributes: true,
   },
 ];
 

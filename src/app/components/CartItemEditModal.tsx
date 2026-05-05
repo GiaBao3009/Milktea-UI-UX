@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { Minus, Plus, Save, X } from 'lucide-react';
-import type { CartItem } from '../context/CartContext';
-import { useCart } from '../context/CartContext';
+import type { CartItem } from '../contexts/CartContext';
+import { useCart } from '../contexts/CartContext';
 import { formatPrice, products } from '../data/products';
 import { ButtonLoadingContent } from './AppLoading';
 import { ImageWithFallback } from './figma/ImageWithFallback';

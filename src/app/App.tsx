@@ -1,6 +1,11 @@
 import { RouterProvider } from 'react-router';
 import { router } from './routes';
+import { AttributesProvider } from './contexts/AttributesContext';
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AttributesProvider>
+      <RouterProvider router={router} />
+    </AttributesProvider>
+  );
 }

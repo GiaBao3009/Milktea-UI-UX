@@ -1,8 +1,10 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { products } from '../data/products';
+import { useAuth } from '@app/auth/contexts/AuthContext';
+import { useNavigate } from 'react-router';
 
 type AuthMode = 'signin' | 'signup';
 
@@ -45,22 +47,50 @@ function FacebookIcon() {
 }
 
 export function LoginPage() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [mode, setMode] = useState<AuthMode>('signin');
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isSignIn = mode === 'signin';
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !password.trim()) {
+      setError('Vui lòng nhập đầy đủ thông tin.');
+      return;
+    }
+    setError('');
+    setIsSubmitting(true);
+    const result = await login(email, password);
+    setIsSubmitting(false);
+    if (!result.success) {
+      setError(result.error || 'Đăng nhập thất bại.');
+      return;
+    }
+    // Redirect theo role
+    const role = result.user?.appRole;
+    if (role === 'admin' || role === 'manager' || role === 'staff' || role === 'cashier') {
+      navigate('/admin', { replace: true });
+    } else {
+      navigate('/', { replace: true });
+    }
+  };
+
   return (
     <div
+      className="flex min-h-screen flex-col"
       style={{
         fontFamily: "'Plus Jakarta Sans', sans-serif",
         backgroundColor: '#f9fafb',
       }}
     >
-      <div className="mx-auto max-w-[1240px] px-4 py-6 md:px-8">
+      <div className="my-auto w-full mx-auto max-w-[1240px] px-4 py-6 md:px-8">
         {/* Grid: image + form side by side, both stretch to same height */}
         <div className="grid items-stretch gap-6 lg:grid-cols-2">
           {/* Left - Image (stretches to match form height) */}
@@ -97,8 +127,18 @@ export function LoginPage() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center justify-center py-4 lg:py-6"
+            className="flex flex-col items-center justify-center py-4 lg:py-6"
           >
+            {/* Logo */}
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="mb-6 lg:mb-8"
+            >
+              <img src="/logo.png" alt="Chips Logo" className="h-16 object-contain drop-shadow-sm lg:h-20" />
+            </motion.div>
+
             <div className="w-full max-w-[440px] rounded-[2.2rem] bg-white p-6 shadow-[0_20px_60px_rgba(61,103,81,0.09)] md:p-8">
               {/* Tab Switcher */}
               <div className="mb-6 flex justify-center gap-8 border-b border-[#e8ece8]">
@@ -144,9 +184,7 @@ export function LoginPage() {
                   {/* Form */}
                   <form
                     className="space-y-4"
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                    }}
+                    onSubmit={handleSubmit}
                   >
                     {/* Name field - only for signup */}
                     {!isSignIn && (
@@ -170,10 +208,10 @@ export function LoginPage() {
                       </div>
                     )}
 
-                    {/* Email */}
+                    {/* Email / Username */}
                     <div>
                       <label className="mb-1.5 block text-sm font-medium text-[#1d2939]">
-                        Email
+                        Tài khoản
                       </label>
                       <div className="relative">
                         <Mail
@@ -181,10 +219,10 @@ export function LoginPage() {
                           className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#919e95]"
                         />
                         <input
-                          type="email"
-                          placeholder="Nhập tài khoản email"
+                          type="text"
+                          placeholder="Email hoặc tên đăng nhập"
                           value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          onChange={(e) => { setEmail(e.target.value); setError(''); }}
                           className="w-full rounded-xl border-0 bg-[#f3f5f3] py-3 pl-10 pr-4 text-sm text-[#101828] outline-none transition-all duration-200 placeholder:text-[#a3ada7] focus:bg-[#eef3ef] focus:ring-2 focus:ring-[#f68749]"
                         />
                       </div>
@@ -247,17 +285,23 @@ export function LoginPage() {
                       </div>
                     )}
 
+                    {/* Error message */}
+                    {error && (
+                      <p className="text-center text-sm font-medium text-red-500">{error}</p>
+                    )}
+
                     {/* Submit Button */}
                     <motion.button
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="w-full rounded-xl py-3 text-sm font-bold text-white shadow-lg transition-transform duration-200 hover:scale-[1.01]"
+                      disabled={isSubmitting}
+                      className="w-full rounded-xl py-3 text-sm font-bold text-white shadow-lg transition-transform duration-200 hover:scale-[1.01] disabled:opacity-70 disabled:cursor-not-allowed"
                       style={{
                         background: '#fb6514',
                         boxShadow: '0 8px 24px rgba(61,103,81,0.22)',
                       }}
                     >
-                      {isSignIn ? 'Đăng nhập' : 'Tạo tài khoản'}
+                      {isSubmitting ? 'Đang xử lý...' : (isSignIn ? 'Đăng nhập' : 'Tạo tài khoản')}
                     </motion.button>
                   </form>
 

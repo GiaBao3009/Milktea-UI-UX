@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown, Menu, ShoppingBag, User, X } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '@app/contexts/CartContext';
 
 const NAV_LINKS = [
   { href: '/', label: 'Trang chủ' },

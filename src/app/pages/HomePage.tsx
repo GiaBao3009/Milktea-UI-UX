@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router';
+﻿import { Link, useNavigate } from 'react-router';
 import { motion } from 'motion/react';
 import { ArrowRight, Plus, Star } from 'lucide-react';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/ScrollReveal';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../contexts/CartContext';
 import { formatPrice, products } from '../data/products';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 

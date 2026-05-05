@@ -1,9 +1,9 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Edit3, Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router';
-import type { CartItem } from '../context/CartContext';
-import { useCart } from '../context/CartContext';
+import type { CartItem } from '../contexts/CartContext';
+import { useCart } from '../contexts/CartContext';
 import { formatPrice } from '../data/products';
 import { CartItemEditModal } from './CartItemEditModal';
 import { ImageWithFallback } from './figma/ImageWithFallback';

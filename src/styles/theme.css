@@ -42,24 +42,24 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #0f172a;
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
+  --card: #1e293b;
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
+  --popover: #1e293b;
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary-foreground: #0f172a;
+  --secondary: #334155;
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: #334155;
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: #334155;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
+  --border: #334155;
+  --input: #334155;
   --ring: oklch(0.439 0 0);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
@@ -68,13 +68,13 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: #0f172a;
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: #334155;
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-border: #334155;
   --sidebar-ring: oklch(0.439 0 0);
 }
 
@@ -117,6 +117,31 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand color scale — cam chủ đạo của Fresh Bubble Tea */
+  --color-brand-50:  #fff4ee;
+  --color-brand-100: #ffe0cc;
+  --color-brand-200: #ffc199;
+  --color-brand-300: #ffa066;
+  --color-brand-400: #fd8033;
+  --color-brand-500: #fb6514;
+  --color-brand-600: #e05510;
+  --color-brand-700: #b8420b;
+  --color-brand-800: #8f3208;
+  --color-brand-900: #6a2406;
+}
+
+:root {
+  --brand-50:  #fff4ee;
+  --brand-100: #ffe0cc;
+  --brand-200: #ffc199;
+  --brand-300: #ffa066;
+  --brand-400: #fd8033;
+  --brand-500: #fb6514;
+  --brand-600: #e05510;
+  --brand-700: #b8420b;
+  --brand-800: #8f3208;
+  --brand-900: #6a2406;
 }
 
 @layer base {

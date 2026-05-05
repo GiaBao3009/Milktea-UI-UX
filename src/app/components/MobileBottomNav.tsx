@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
 import { Home, ShoppingBag, Tag, UtensilsCrossed, User } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../contexts/CartContext';
 
 export function MobileBottomNav() {
   const location = useLocation();
@@ -9,7 +9,7 @@ export function MobileBottomNav() {
   const { totalItems } = useCart();
 
   // Ẩn bottom nav trên trang chi tiết sản phẩm (trải nghiệm toàn màn hình)
-  if (/^\/thuc-don\/.+/.test(location.pathname)) return null;
+  if (location.pathname === '/thuc-don' || /^\/thuc-don\/.+/.test(location.pathname)) return null;
 
   // Khi floating cart bar đang hiển thị (MenuPage + có món), cart icon không cần nổi bật
   const floatingBarActive = location.pathname === '/thuc-don' && totalItems > 0;
